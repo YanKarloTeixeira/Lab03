@@ -1,0 +1,3 @@
+D:\Dropbox\College\Term04\COMP308-ET\ASS\ASS03 - Copy\YanKarloTeixeira-Lab03\YanKarloTeixeira-Lab03\obj\Debug\Lab03Server.njsprojAssemblyReference.cache
+D:\Dropbox\College\Term04\COMP308-ET\ASS\ASS03 - Copy\YanKarloTeixeira-Lab03\YanKarloTeixeira-Lab03\obj\Debug\Lab03Server.njsproj.CoreCompileInputs.cache
+D:\Dropbox\College\Term04\COMP308-ET\ASS\ASS03 - Copy\YanKarloTeixeira-Lab03\YanKarloTeixeira-Lab03\bin\Microsoft.NodejsTools.WebRole.dll

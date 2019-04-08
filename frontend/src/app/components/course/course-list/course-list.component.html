@@ -1,0 +1,14 @@
+<tr class="col-md-4" *ngFor="let course of courses">
+  <div class="card text-center">
+    <div class="card-header">
+      {{ course.courseCode}}
+    </div>
+    <div class="card-body">
+      <p>{{course.courseName}}</p>
+      <p>{{course.semester}}</p>
+      <p>{{course.section}}</p>
+    </div>
+    <a class="icon-plus-details" routerLink="/courseEdit/{{course}}">Edit</a>
+   <!-- <button type="button" name="editCourse" (click)="goToEdit(course)"></button> -->
+  </div>
+</tr>

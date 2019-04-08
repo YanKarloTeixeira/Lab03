@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title><%= title %> </title>
+    <link rel="stylesheet" type="text/css" href="css/display.css" />
+
+</head>
+
+<body>
+    <!-- Load the static image file  -->
+    <img src="img/logo.png" alt="Logo">
+    <h2> List of Courses</h2>
+    <table class="center">
+        <tr>
+            <td>
+                <div>
+                    <label>Student Number</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>Fisrt Name</label>
+
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <label>Last Name</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>Email</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>Program</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>Address</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>City</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>Phone</label>
+                </div>
+            </td>
+            <% students.forEach(function(student){ %>
+
+        <tr>
+            <td>
+                <div>
+                    <input type="text" name="StudentNumber" value="<%= student.studentNumber %>" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="firstName" value="<%= student.firstName %>" />
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="lastName" value="<%= student.lastName %>" />
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="email" value="<%= student.email %>" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="program" value="<%= student.program %>" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="address" value="<%= student.address %>" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="city" value="<%= student.city %>" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="phone" value="<%= student.phone %>" />
+                </div>
+            </td>
+        </tr>
+        <% })%>
+
+    </table>
+
+    <a href="http://localhost:3000"> Main Page</a>
+
+</body>
+
+</html>

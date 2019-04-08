@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title><%= title %> </title>
+    <link rel="stylesheet" type="text/css" href="css/display.css" />
+
+</head>
+<body>
+    <!-- Load the static image file  -->
+    <img src="img/logo.png" alt="Logo">
+    <h2> List of Courses</h2>
+    <table class="center">
+        <tr>
+            <td>
+                <div>
+                    <label>Course Code</label>
+                </div>
+
+            </td>
+            <td>
+
+                <div>
+                    <label>Course Name</label>
+
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <label>Section</label>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <label>Semester</label>
+                </div>
+            </td>
+        <% courses.forEach(function(course){ %>
+
+        <tr>
+            <td>
+                <div>
+
+                    <input type="text" name="courseCode" value="<%= course.courseCode %>" />
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="courseName" value="<%= course.courseName %>" />
+                </div>
+
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="semester" value="<%= course.semester %>" />
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" name="section" value="<%= course.section %>" />
+                </div>
+            </td>
+        </tr>
+        <% })%>
+
+    </table>
+
+    <a href="http://localhost:3000"> Main Page</a>
+
+</body>
+</html>
