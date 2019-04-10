@@ -11,20 +11,19 @@ export class CoursesService {
 
   constructor(private http: HttpClient) {}
 
-  
   getCourses() {
-    return this.http.get(this.API_URI+'/course');
+    return this.http.get(this.API_URI + "/course");
   }
   getCourse(id: string) {
-    return this.http.get("${this.API_URI}/course/${id}");
+    return this.http.get(this.API_URI + "/course/" + id);
   }
   saveCourse(course: Course) {
-    this.http.post("${this.API_URI}/course/", course);
+    return this.http.post(this.API_URI + "/course/", course);
   }
   deleteCourse(id: string) {
-    return this.http.delete("${this.API_URI}/course/${id}");
+    return this.http.delete(this.API_URI + "/course/" + id);
   }
   updateCourse(id: string, course: Course): Observable<Course> {
-    return this.http.post("${this.API_URI}/course/${id}", course);
+    return this.http.put(this.API_URI + "/course/" + id, course);
   }
 }

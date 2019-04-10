@@ -4,12 +4,12 @@ const Registration = mongoose.model("Registrations");
 const Student = mongoose.model("Students");
 const passport = require("passport");
 
-
 //
 function getErrorMessage(err) {
   if (err.errors) {
     for (let errName in err.errors) {
-      if (err.errors[errName].message) return err.errors[errName].message;
+      if (err.errors[errName].message)
+        return "ERROR MSG: " + err.errors[errName].message;
     }
   } else {
     return "Unknown server error";
@@ -27,7 +27,7 @@ exports.renderDelete = function(req, res) {
 };
 exports.create = function(req, res) {
   const course = new Course(req.body);
-  console.log(course);
+  console.log("==============================>" + course);
 
   course.save(err => {
     if (err) {
@@ -68,7 +68,7 @@ exports.read = function(req, res, id) {
 //
 exports.courseByID = function(req, res, next, id) {
   //Course.findById(id).populate('creator', 'firstName lastName fullName').exec((err, course) => {
-
+  console.log("============================================>findById");
   Course.findById(id).exec((err, course) => {
     if (err) return next(err);
     if (!course) return next(new Error("Failed to load course " + id));
@@ -78,19 +78,27 @@ exports.courseByID = function(req, res, next, id) {
 };
 exports.courseBycourse = function(req, res, next, course) {
   //Course.findById(id).populate('creator', 'firstName lastName fullName').exec((err, course) => {
-
   const courseUpdate = new Course(course);
-  Course.findById(courseUpdate.id).exec((err, course) => {
-    if (err) return next(err);
-    if (!course) return next(new Error("Failed to load course " + id));
-    req.course = courseUpdate;
-    next();
-  });
+  console.log("courseByCourse executed :", courseUpdate);
+  if (courseUpdate.id == null) req.course;
+  else {
+    Course.findById(courseUpdate.id).exec((err, course) => {
+      if (err) return next(err);
+      if (!course) return next(new Error("Failed to load course " + id));
+      req.course = courseUpdate;
+
+      next();
+    });
+  }
 };
 exports.update = function(req, res) {
   const course = new Course(req.course);
-  //course.title = req.body.title;
-  //course.content = req.body.content;
+
+  course.courseName = req.body.courseName;
+  course.courseCode = req.body.courseCode;
+  course.section = req.body.section;
+  course.semester = req.body.semester;
+
   course.save(err => {
     if (err) {
       return res.status(400).send({
@@ -114,7 +122,7 @@ exports.delete = function(req, res) {
             courseCode +
             " cannot be deleted. There is still enrollments."
         )
-      ); 
+      );
     req.course = course;
   }).then(function() {
     // const course = new Course(req.course);

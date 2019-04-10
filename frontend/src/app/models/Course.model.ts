@@ -4,5 +4,5 @@ export interface Course {
   courseName?: string;
   section?: string;
   semester?: string;
-  __v?: number;
+ 
 }

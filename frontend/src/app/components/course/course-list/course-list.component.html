@@ -1,14 +1,28 @@
-<tr class="col-md-4" *ngFor="let course of courses">
-  <div class="card text-center">
-    <div class="card-header">
-      {{ course.courseCode}}
-    </div>
-    <div class="card-body">
-      <p>{{course.courseName}}</p>
-      <p>{{course.semester}}</p>
-      <p>{{course.section}}</p>
-    </div>
-    <a class="icon-plus-details" routerLink="/courseEdit/{{course}}">Edit</a>
-   <!-- <button type="button" name="editCourse" (click)="goToEdit(course)"></button> -->
-  </div>
-</tr>
+<div class="container">
+  <table>
+    <tr>
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Section</th>
+      <th>Semester</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr class="col-md-4" *ngFor="let course of courses">
+      <td style="width :15%;">{{ course.courseCode }}</td>
+      <td style="width :45%;">{{ course.courseName }}</td>
+      <td style="width :10%;">{{ course.semester }}</td>
+      <td style="width :10%;">{{ course.section }}</td>
+      <td style="width :10%;">
+        <a [routerLink]="['/course/edit/', course._id]" class="btn btn-info"
+          >Edit</a
+        >
+      </td>
+      <td style="width :10%;">
+        <a class="btn btn-danger" (click)="deleteCourse(course.id)">Delete</a>
+      </td>
+    </tr>
+
+    <!-- <button type="button" name="editCourse" (click)="goToEdit(course)"></button> -->
+  </table>
+</div>

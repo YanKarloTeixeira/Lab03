@@ -1,3 +1,53 @@
-<p>
-  course-form works!
-</p>
+<div class="col-md-4 offset-md-4">
+  <div class="card">
+    <div class="card-body">
+      <form action="">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="courseCode"
+            id=""
+            placeholder="Course Code"
+            autofocus
+            [(ngModel)]="course.courseCode"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="courseName"
+            id=""
+            placeholder="Course Name"
+            autofocus
+            [(ngModel)]="course.courseName"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="sectio"
+            id=""
+            placeholder="Section"
+            autofocus
+            [(ngModel)]="course.section"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="semester"
+            id=""
+            placeholder="Semester"
+            autofocus
+            [(ngModel)]="course.semester"
+          />
+        </div>
+        <button class="btn btn-success" (click)='actionCourse()'>Save</button>
+      </form>
+    </div>
+  </div>
+</div>
