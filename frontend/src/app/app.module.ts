@@ -14,6 +14,10 @@ import { StudentListComponent } from './components/student/student-list/student-
 import{CoursesService} from './services/courses.service';
 import { StudentFormComponent } from './components/student/student-form/student-form.component';
 import { EnrollmentFormComponent } from './components/enrollemnt/enrollment-form/enrollment-form.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { SignupComponent } from './authentication/signup/signup.component';
+import { SigninComponent } from './authentication/signin/signin.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { EnrollmentFormComponent } from './components/enrollemnt/enrollment-form
     CourseListComponent,
     StudentListComponent,
     StudentFormComponent,
-    EnrollmentFormComponent
+    EnrollmentFormComponent,
+    AuthenticationComponent,
+    SignupComponent,
+    SigninComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
