@@ -11,13 +11,14 @@ import { CourseFormComponent } from './components/course/course-form/course-form
 import { CourseListComponent } from './components/course/course-list/course-list.component';
 import { StudentListComponent } from './components/student/student-list/student-list.component';
 
-import{CoursesService} from './services/courses.service';
+import {CoursesService} from './services/courses.service';
 import { StudentFormComponent } from './components/student/student-form/student-form.component';
-import { EnrollmentFormComponent } from './components/enrollemnt/enrollment-form/enrollment-form.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { HomeComponent } from './home/home.component';
+import { EnrollmentFormComponent } from './components/enrollment/enrollment-form/enrollment-form.component';
+import { EnrollmentListComponent } from './components/enrollment/enrollment-list/enrollment-list.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,12 @@ import { HomeComponent } from './home/home.component';
     CourseListComponent,
     StudentListComponent,
     StudentFormComponent,
-    EnrollmentFormComponent,
     AuthenticationComponent,
     SignupComponent,
     SigninComponent,
-    HomeComponent
+    HomeComponent,
+    EnrollmentFormComponent,
+    EnrollmentListComponent,
   ],
   imports: [
     BrowserModule,

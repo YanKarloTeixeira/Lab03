@@ -47,6 +47,7 @@ exports.list = function(req, res) {
       // Call the next middleware with an error message
       return next(err);
     } else {
+      console.log(courses);
       // Use the 'response' object to send a JSON response
       res.status(200).json(courses);
       // res.render("CoursesList", {

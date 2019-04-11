@@ -28,7 +28,9 @@ function getErrorMessage(err) {
     return "Unknown server error";
   }
 }
-
+exports.list = function(req,res){
+  return res.status(200).json(Registrations.find({}).populate("course"));
+}
 exports.create = function(req, res) {
   const registration = new Registrations();
   const student = new Students(req.user);
@@ -50,9 +52,10 @@ exports.create = function(req, res) {
     });
 };
 //
-exports.registrationsByStudent = function(req, res, studentNumber) {
+exports.registrationsByStudent = function(req, res) {
+  console.log("STUDENT IN THE SESSION ------------------>"+ req.user);
   const student = new Students(req.user); 
-      Registrations.find({ student: student.id })
+      Registrations.find({ student: student._id })
         .populate("course")
         .exec((err, registrations) => {
           if (err) {

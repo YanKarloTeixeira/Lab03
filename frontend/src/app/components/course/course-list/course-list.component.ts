@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { CoursesService } from "../../../services/courses.service";
+import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../../../services/courses.service';
 // import { HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: "app-course-list",
-  templateUrl: "./course-list.component.html",
-  styleUrls: ["./course-list.component.css"]
+  selector: 'app-course-list',
+  templateUrl: './course-list.component.html',
+  styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
   courses: any = [];
@@ -19,8 +19,8 @@ export class CourseListComponent implements OnInit {
     this.courseService
       .getCourse(id)
       .subscribe(
-        res => console.log("course to be edited :", id),
-        err => console.log("err :", err)
+        res => console.log('course to be edited :', id),
+        err => console.log('err :', err)
       );
   }
   deleteCourse(id: string) {
