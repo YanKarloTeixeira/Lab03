@@ -29,8 +29,20 @@ function getErrorMessage(err) {
   }
 }
 exports.list = function(req,res){
-  return res.status(200).json(Registrations.find({}).populate("course"));
-}
+  Registrations.find({}, function (err, registrations) {
+    if (err) {
+      // Call the next middleware with an error message
+      return next(err);
+    } else {
+      console.log(registrations);
+      // Use the 'response' object to send a JSON response
+      res.status(200).json(registrations);
+      // res.render("CoursesList", {
+      //   title: "List All Courses",
+      //   courses: courses
+      // });
+    }
+  });}
 exports.create = function(req, res) {
   const registration = new Registrations();
   const student = new Students(req.user);

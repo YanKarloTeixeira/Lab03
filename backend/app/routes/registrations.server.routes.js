@@ -6,8 +6,8 @@ const registrations = require("../controllers/registrations.server.controller");
 
 // Define the routes module' method
 module.exports = function (app) {
-  app.route("/api/enrollment").get(registrations.list);
-  app.route("/api/enrollment/:id").get(registrations.read);
+  app.route("/api/enrollments").get(registrations.list);
+  // app.route("/api/enrollment/:id").get(registrations.read);
   app.route("/api/enrollment/by_student").get(registrations.registrationsByStudent);
   app.route("/api/enrollment/by_course/:courseId").get(registrations.registrationsByCourse);
   app.route("/api/enrollment/").post(registrations.create);
