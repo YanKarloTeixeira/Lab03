@@ -1,16 +1,16 @@
-import { Component, OnInit, HostBinding } from "@angular/core";
-import { Course } from "src/app/models/Course.model";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { Course } from 'src/app/models/Course.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { CoursesService } from "../../../services/courses.service";
+import { CoursesService } from '../../../services/courses.service';
 
 @Component({
-  selector: "app-course-form",
-  templateUrl: "./course-form.component.html",
-  styleUrls: ["./course-form.component.css"]
+  selector: 'app-course-form',
+  templateUrl: './course-form.component.html',
+  styleUrls: ['./course-form.component.css']
 })
 export class CourseFormComponent implements OnInit {
-  @HostBinding("class") classes = "row";
+  @HostBinding('class') classes = 'row';
   edit: boolean = false;
 
   course: Course = {
@@ -31,7 +31,7 @@ export class CourseFormComponent implements OnInit {
     const params = this.activedRoute.snapshot.params;
     console.log('params :', params);
     if (params.id) {
-      console.log("params.id", params.id);
+      console.log('params.id', params.id);
       this.coursesService.getCourse(params.id).subscribe(
         res => {
           console.log(res);
@@ -50,7 +50,7 @@ export class CourseFormComponent implements OnInit {
       this.coursesService.updateCourse(this.course._id, this.course).subscribe(
         res => {
           console.log(res);
-          this.router.navigate(["/"]);
+          this.router.navigate(['/']);
         },
         err => {
           console.log(err);
@@ -64,7 +64,7 @@ export class CourseFormComponent implements OnInit {
       this.coursesService.saveCourse(this.course).subscribe(
         res => {
           console.log(res);
-          this.router.navigate(["/"]);
+          this.router.navigate(['/']);
         },
         err => {
           console.log(err);

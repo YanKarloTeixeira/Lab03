@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
+import { HomeComponent} from './home/home.component';
 import { CourseListComponent } from './components/course/course-list/course-list.component';
 import { CourseFormComponent } from './components/course/course-form/course-form.component';
 import { StudentListComponent } from './components/student/student-list/student-list.component';
@@ -13,8 +14,12 @@ import {EnrollmentFormComponent} from './components/enrollment/enrollment-form/e
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    data: { title: 'Angular 7 - Lab03' }
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'courses',

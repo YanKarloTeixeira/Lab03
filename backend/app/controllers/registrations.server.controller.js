@@ -65,21 +65,32 @@ exports.create = function(req, res) {
 };
 //
 exports.registrationsByStudent = function(req, res) {
-  console.log("STUDENT IN THE SESSION ------------------>"+ req.user);
-  const student = new Students(req.user); 
-      Registrations.find({ student: student._id })
+  studentNumber = req.params.studentNumber;
+  console.log("================================================>"+req.params.studentNumber)
+  Students.findOne({studentNumber: studentNumber}, function(err, student){
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+    } else {
+      req.studentId = student.id;
+      console.log('req.courseId :', req.studentId);
+    }
+  })
+  .then(function(){
+      Registrations.find({ student: req.studentId  })
         .populate("course")
         .exec((err, registrations) => {
           if (err) {
             return res.status(400).send({
-              message: getErrorMessage(err)
+            message: getErrorMessage(err)
             });
           } else {
             req.registrations = registrations;
-            console.log("========registrations :" + registrations);
             res.status(200).json(req.registrations);
           }
-        });
+        })
+      });
 };
 
 exports.registrationsByCourse = function(req, res, next) {

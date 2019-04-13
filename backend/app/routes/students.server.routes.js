@@ -72,7 +72,7 @@ module.exports = function (app) {
 	// );
 
 	// Set up the 'signout' route
-	app.get("/signout", students.signout);
+	app	.get("/signout", students.signout);
 
 	// app.get("/studentsList", students.list);
 

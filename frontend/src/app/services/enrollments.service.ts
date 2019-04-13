@@ -18,7 +18,7 @@ export class EnrollmentService {
     return this.http.get(this.API_URI + '/enrollment');
   }
   getEnrollmentByStudent() {
-    return this.http.get(this.API_URI + '/enrollment/by_student');
+    return this.http.get(this.API_URI + '/enrollment/by-student/3009622901');
   }
   getEnrollmentByCourse(courseId: string) {
     return this.http.get(this.API_URI + '/enrollment/by_course/' + courseId);

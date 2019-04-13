@@ -26,7 +26,6 @@ export class EnrollmentListComponent implements OnInit {
       err => { console.log(err);
       }
     );
-    
   }
 
 }
